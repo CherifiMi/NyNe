@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Myne</string>
+    <string name="app_name" translatable="false">Nyne</string>
     <!-- Others Strings -->
     <string name="not_applicable">N/A</string>
     <string name="woops">"Whoops!!"</string>

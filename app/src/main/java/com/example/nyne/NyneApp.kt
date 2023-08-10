@@ -13,10 +13,11 @@ import dagger.hilt.android.HiltAndroidApp
 @ExperimentalMaterial3Api
 @ExperimentalMaterialApi
 @HiltAndroidApp
-class MyneApp : Application() {
+class NyneApp : Application() {
     override fun onCreate() {
         super.onCreate()
         CaocConfig.Builder.create().restartActivity(MainActivity::class.java).apply()
         // TODO: find what this does (reports crashes?)
+        // TODO: find what manifast provider does
     }
 }
