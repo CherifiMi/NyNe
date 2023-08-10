@@ -1,6 +1,7 @@
 package com.example.nyne.util.di
 
 import android.content.Context
+import com.example.nyne.data.NyneDataStore
 import com.example.nyne.data.database.NyneDatabase
 import dagger.Module
 import dagger.Provides
@@ -17,7 +18,6 @@ class AppModule {
     @Provides
     fun provideAppContext(@ApplicationContext context: Context) = context
 
-
     @Singleton
     @Provides
     fun provideMyneDatabase(@ApplicationContext context: Context) =
@@ -29,5 +29,10 @@ class AppModule {
     @Provides
     fun provideReaderDao(myneDatabase: NyneDatabase) = myneDatabase.getReaderDao()
 
+    @Provides
+    @Singleton
+    fun provideDataStoreRepository(
+        @ApplicationContext context: Context
+    ) = NyneDataStore(context = context)
 
 }
