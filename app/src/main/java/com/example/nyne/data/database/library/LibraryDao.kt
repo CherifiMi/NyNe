@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
-class LibraryDao {
+interface LibraryDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(libraryItem: LibraryItem)
 
