@@ -35,7 +35,7 @@ class BookDownloader (context: Context){
         book: Book, downloadProgressListener: (Float, Int) -> Unit, onDownloadSuccess: () -> Unit
     ){
         val filename = getFilenameForBook(book)
-        val uri = Uri.parse(book.formats.applicationepubzip) // !! fix
+        val uri = Uri.parse(book.formats.applicationepubzip)
     }
     fun isBookCurrentlyDownloading(bookId: Int) = runningDownloads.containsKey(bookId)
     fun getRunnignDownload(bookId: Int) = runningDownloads[bookId]
