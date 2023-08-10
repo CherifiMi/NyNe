@@ -3,6 +3,7 @@ package com.example.nyne.util.others
 import android.app.DownloadManager
 import android.content.Context
 import android.net.Uri
+import android.os.Environment
 import android.view.translation.Translator
 import androidx.annotation.Keep
 import coil.compose.AsyncImagePainter
@@ -36,6 +37,11 @@ class BookDownloader (context: Context){
     ){
         val filename = getFilenameForBook(book)
         val uri = Uri.parse(book.formats.applicationepubzip)
+        val request = DownloadManager.Request(uri)
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+            .setAllowedOverRoaming(true).setAllowedOverMetered(true).setTitle(book.title)
+            .setDescription()
+            .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, Constants.DOWNLOAD_DIR + "/" + filename)
     }
     fun isBookCurrentlyDownloading(bookId: Int) = runningDownloads.containsKey(bookId)
     fun getRunnignDownload(bookId: Int) = runningDownloads[bookId]
