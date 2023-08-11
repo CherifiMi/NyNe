@@ -28,4 +28,7 @@ class Paginator<Page, BookSet>(
         onSuccess(bookSet, currentPage)
         onLoadUpdated(false)
     }
+    fun reset(){
+        currentPage = initialPage
+    }
 }
