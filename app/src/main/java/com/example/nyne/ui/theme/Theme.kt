@@ -1,44 +1,86 @@
 package com.example.nyne.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 
-private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+private val DarkColorPalette = darkColorScheme(
+    onErrorContainer = md_theme_dark_onErrorContainer,
+    onError = md_theme_dark_onError,
+    errorContainer = md_theme_dark_errorContainer,
+    onTertiaryContainer = md_theme_dark_onTertiaryContainer,
+    onTertiary = md_theme_dark_onTertiary,
+    tertiaryContainer = md_theme_dark_tertiaryContainer,
+    tertiary = md_theme_dark_tertiary,
+    error = md_theme_dark_error,
+    outline = md_theme_dark_outline,
+    onBackground = md_theme_dark_onBackground,
+    background = md_theme_dark_background,
+    inverseOnSurface = md_theme_dark_inverseOnSurface,
+    inverseSurface = md_theme_dark_inverseSurface,
+    onSurfaceVariant = md_theme_dark_onSurfaceVariant,
+    onSurface = md_theme_dark_onSurface,
+    surfaceVariant = md_theme_dark_surfaceVariant,
+    surface = md_theme_dark_surface,
+    onSecondaryContainer = md_theme_dark_onSecondaryContainer,
+    onSecondary = md_theme_dark_onSecondary,
+    secondaryContainer = md_theme_dark_secondaryContainer,
+    secondary = md_theme_dark_secondary,
+    inversePrimary = md_theme_dark_inversePrimary,
+    onPrimaryContainer = md_theme_dark_onPrimaryContainer,
+    onPrimary = md_theme_dark_onPrimary,
+    primaryContainer = md_theme_dark_primaryContainer,
+    primary = md_theme_dark_primary
 )
 
-private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
+private val LightColorPalette = lightColorScheme(
 
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
-)
+    onErrorContainer = md_theme_light_onErrorContainer,
+    onError = md_theme_light_onError,
+    errorContainer = md_theme_light_errorContainer,
+    onTertiaryContainer = md_theme_light_onTertiaryContainer,
+    onTertiary = md_theme_light_onTertiary,
+    tertiaryContainer = md_theme_light_tertiaryContainer,
+    tertiary = md_theme_light_tertiary,
+    error = md_theme_light_error,
+    outline = md_theme_light_outline,
+    onBackground = md_theme_light_onBackground,
+    background = md_theme_light_background,
+    inverseOnSurface = md_theme_light_inverseOnSurface,
+    inverseSurface = md_theme_light_inverseSurface,
+    onSurfaceVariant = md_theme_light_onSurfaceVariant,
+    onSurface = md_theme_light_onSurface,
+    surfaceVariant = md_theme_light_surfaceVariant,
+    surface = md_theme_light_surface,
+    onSecondaryContainer = md_theme_light_onSecondaryContainer,
+    onSecondary = md_theme_light_onSecondary,
+    secondaryContainer = md_theme_light_secondaryContainer,
+    secondary = md_theme_light_secondary,
+    inversePrimary = md_theme_light_inversePrimary,
+    onPrimaryContainer = md_theme_light_onPrimaryContainer,
+    onPrimary = md_theme_light_onPrimary,
+    primaryContainer = md_theme_light_primaryContainer,
+    primary = md_theme_light_primary,
+
+    )
 
 @Composable
-fun NyneTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
-    val colors = if (darkTheme) {
+fun NyneTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable () -> Unit
+
+) {
+    val colorScheme = if (darkTheme) {
         DarkColorPalette
     } else {
         LightColorPalette
     }
 
-    MaterialTheme(
-        colors = colors,
+    androidx.compose.material3.MaterialTheme(
+        colorScheme = colorScheme,
         typography = Typography,
-        shapes = Shapes,
         content = content
     )
 }
