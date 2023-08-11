@@ -3,6 +3,8 @@ package com.example.nyne.util.di
 import android.content.Context
 import com.example.nyne.data.NyneDataStore
 import com.example.nyne.data.database.NyneDatabase
+import com.example.nyne.domein.repo.BookRepository
+import com.example.nyne.util.others.BookDownloader
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,4 +37,11 @@ class AppModule {
         @ApplicationContext context: Context
     ) = NyneDataStore(context = context)
 
+    @Singleton
+    @Provides
+    fun provideBookDownloader(@ApplicationContext context: Context) = BookDownloader(context)
+
+    @Singleton
+    @Provides
+    fun provideBooksApi() = BookRepository()
 }
