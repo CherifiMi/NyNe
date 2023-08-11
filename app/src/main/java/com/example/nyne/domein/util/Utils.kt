@@ -1,4 +1,4 @@
-package com.example.nyne.util
+package com.example.nyne.domein.util
 
 import android.content.ActivityNotFoundException
 import android.content.Context

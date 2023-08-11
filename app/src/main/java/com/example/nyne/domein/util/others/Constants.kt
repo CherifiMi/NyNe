@@ -1,4 +1,4 @@
-package com.example.nyne.util.others
+package com.example.nyne.domein.util.others
 
 object Constants {
     const val DOWNLOAD_DIR = "MyneEbooks"

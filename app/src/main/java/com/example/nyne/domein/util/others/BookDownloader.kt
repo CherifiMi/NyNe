@@ -1,4 +1,4 @@
-package com.example.nyne.util.others
+package com.example.nyne.domein.util.others
 
 import android.annotation.SuppressLint
 import android.app.DownloadManager
@@ -9,7 +9,7 @@ import android.os.Environment
 import android.view.translation.Translator
 import androidx.annotation.Keep
 import coil.compose.AsyncImagePainter
-import com.example.nyne.util.BookUtils
+import com.example.nyne.domein.util.BookUtils
 import com.google.gson.annotations.SerializedName
 import com.starry.myne.repo.models.Author
 import com.starry.myne.repo.models.Book

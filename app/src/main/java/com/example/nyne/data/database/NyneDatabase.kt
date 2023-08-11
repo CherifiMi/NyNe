@@ -10,7 +10,7 @@ import com.example.nyne.data.database.library.LibraryDao
 import com.example.nyne.data.database.library.LibraryItem
 import com.example.nyne.data.database.reader.ReaderDao
 import com.example.nyne.data.database.reader.ReaderItem
-import com.example.nyne.util.others.Constants
+import com.example.nyne.domein.util.others.Constants
 
 @Database(
     entities = [LibraryItem::class, ReaderItem::class],

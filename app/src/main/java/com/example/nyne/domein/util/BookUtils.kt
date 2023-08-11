@@ -1,4 +1,4 @@
-package com.example.nyne.util
+package com.example.nyne.domein.util
 
 import com.starry.myne.repo.models.Author
 import java.util.*

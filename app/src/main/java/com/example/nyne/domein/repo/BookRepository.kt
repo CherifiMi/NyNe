@@ -1,6 +1,6 @@
 package com.example.nyne.domein.repo
 
-import com.example.nyne.util.others.BookLanguage
+import com.example.nyne.domein.util.others.BookLanguage
 import com.google.gson.Gson
 import com.starry.myne.repo.models.BookSet
 import com.starry.myne.repo.models.ExtraInfo

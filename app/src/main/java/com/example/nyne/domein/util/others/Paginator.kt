@@ -1,4 +1,4 @@
-package com.example.nyne.util.others
+package com.example.nyne.domein.util.others
 
 class Paginator<Page, BookSet>(
     private val initialPage: Page,
