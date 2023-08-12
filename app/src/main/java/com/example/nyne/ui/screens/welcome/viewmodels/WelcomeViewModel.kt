@@ -19,7 +19,7 @@ package com.starry.myne.ui.screens.welcome.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.starry.myne.others.WelcomeDataStore
+import com.example.nyne.data.NyneDataStore
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,7 +27,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WelcomeViewModel @Inject constructor(
-    private val welcomeDataStore: WelcomeDataStore
+    private val welcomeDataStore: NyneDataStore
 ) : ViewModel() {
 
     fun saveOnBoardingState(completed: Boolean) {

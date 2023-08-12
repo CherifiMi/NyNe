@@ -47,15 +47,16 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.annotation.ExperimentalCoilApi
-import com.starry.myne.BuildConfig
-import com.starry.myne.MainActivity
-import com.starry.myne.R
+import com.example.nyne.BuildConfig
+import com.example.nyne.MainActivity
+import com.example.nyne.R
+import com.example.nyne.domein.util.PreferenceUtil
+import com.example.nyne.ui.navigation.Screens
+import com.example.nyne.ui.theme.figeronaFont
 import com.starry.myne.ui.common.CustomTopAppBar
-import com.starry.myne.ui.navigation.Screens
 import com.starry.myne.ui.screens.settings.viewmodels.SettingsViewModel
 import com.starry.myne.ui.screens.settings.viewmodels.ThemeMode
-import com.starry.myne.ui.theme.figeronaFont
-import com.starry.myne.utils.PreferenceUtil
+
 import com.starry.myne.utils.getActivity
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

@@ -29,7 +29,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.mikepenz.aboutlibraries.ui.compose.LibrariesContainer
 import com.mikepenz.aboutlibraries.ui.compose.LibraryDefaults
-import com.starry.myne.R
+import com.example.nyne.R
 import com.starry.myne.ui.common.CustomTopAppBar
 
 @ExperimentalMaterial3Api

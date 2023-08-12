@@ -47,15 +47,15 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import coil.annotation.ExperimentalCoilApi
+import com.example.nyne.domein.util.others.NetworkObserver
+import com.example.nyne.ui.navigation.BottomBarScreen
+import com.example.nyne.ui.navigation.NavGraph
+import com.example.nyne.ui.theme.figeronaFont
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.starry.myne.others.NetworkObserver
-import com.starry.myne.ui.navigation.BottomBarScreen
-import com.starry.myne.ui.navigation.NavGraph
 import com.starry.myne.ui.screens.settings.viewmodels.SettingsViewModel
 import com.starry.myne.ui.screens.settings.viewmodels.ThemeMode
-import com.starry.myne.ui.theme.figeronaFont
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @ExperimentalAnimationApi
