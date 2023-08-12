@@ -16,9 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.app.ActivityCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.lifecycle.ViewModelProvider
 import com.example.nyne.domein.util.others.NetworkObserver
 import com.example.nyne.ui.theme.NyneTheme
 import com.starry.myne.ui.screens.settings.viewmodels.SettingsViewModel
+import com.starry.myne.ui.screens.settings.viewmodels.ThemeMode
 
 class MainActivity : ComponentActivity() {
 
@@ -29,6 +31,22 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        PreferenceUtil.initialize(this)
+        networkObserver = NetworkObserver(applicationContext)
+        settingsViewModel = ViewModelProvider(this)[SettingsViewModel::class.java]
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+
+        when (PreferenceUtil.getInt(PreferenceUtil.APP_THEME_INT, ThemeMode.Auto.ordinal)) {
+            ThemeMode.Auto.ordinal -> settingsViewModel.setTheme(ThemeMode.Auto)
+            ThemeMode.Dark.ordinal -> settingsViewModel.setTheme(ThemeMode.Dark)
+            ThemeMode.Light.ordinal -> settingsViewModel.setTheme(ThemeMode.Light)
+        }
+
+        settingsViewModel.setMaterialYou(
+            PreferenceUtil.getBoolean(
+                PreferenceUtil.MATERIAL_YOU_BOOL, Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
+            )
+        )
 
         installSplashScreen().setKeepOnScreenCondition {
             mainViewModel.isLoading.value
