@@ -13,6 +13,17 @@ import androidx.navigation.navArgument
 import com.example.nyne.domein.util.others.NetworkObserver
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
+import com.starry.myne.ui.screens.categories.composables.CategoriesScreen
+import com.starry.myne.ui.screens.categories.composables.CategoryDetailScreen
+import com.starry.myne.ui.screens.home.composables.BookDetailScreen
+import com.starry.myne.ui.screens.home.composables.HomeScreen
+import com.starry.myne.ui.screens.library.composables.LibraryScreen
+import com.starry.myne.ui.screens.reader.composables.ReaderDetailScreen
+import com.starry.myne.ui.screens.reader.composables.ReaderScreen
+import com.starry.myne.ui.screens.settings.composables.AboutScreen
+import com.starry.myne.ui.screens.settings.composables.OSLScreen
+import com.starry.myne.ui.screens.settings.composables.SettingsScreen
+import com.starry.myne.ui.screens.welcome.composables.WelcomeScreen
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -45,7 +56,7 @@ fun NavGraph(
 
             },
         ) {
-
+            WelcomeScreen(navController = navController)
         }
 
         /** Home Screen */
@@ -72,7 +83,7 @@ fun NavGraph(
             },
             popExitTransition = { fadeOut(animationSpec = tween(400)) }
         ) {
-
+            HomeScreen(navController, networkStatus)
         }
 
         /** Book Detail Screen */
@@ -115,7 +126,7 @@ fun NavGraph(
             },
         ) { backStackEntry ->
             val bookId = backStackEntry.arguments!!.getString(BOOK_ID_ARG_KEY)!!
-
+            BookDetailScreen(bookId, navController)
         }
 
         /** Categories Screen */
@@ -142,7 +153,7 @@ fun NavGraph(
             },
             popExitTransition = { fadeOut(animationSpec = tween(400)) }
         ) {
-
+            CategoriesScreen(navController)
         }
 
         /** Category Detail Screen */
@@ -183,7 +194,7 @@ fun NavGraph(
             },
         ) { backStackEntry ->
             val category = backStackEntry.arguments!!.getString(CATEGORY_DETAIL_ARG_KEY)!!
-
+            CategoryDetailScreen(category, navController, networkStatus)
         }
 
         /** Library Screen */
@@ -210,7 +221,7 @@ fun NavGraph(
             },
             popExitTransition = { fadeOut(animationSpec = tween(400)) }
         ) {
-
+            LibraryScreen(navController)
         }
 
         /** Reader Detail Screen */
@@ -253,7 +264,7 @@ fun NavGraph(
             },
         ) { backStackEntry ->
             val bookId = backStackEntry.arguments!!.getString(BOOK_ID_ARG_KEY)!!
-
+            ReaderDetailScreen(bookId = bookId, navController = navController)
         }
 
         /** Reader Screen */
@@ -283,7 +294,7 @@ fun NavGraph(
         ) { backStackEntry ->
             val bookId = backStackEntry.arguments!!.getString(BOOK_ID_ARG_KEY)!!
             val chapterIdx = backStackEntry.arguments!!.getInt(READER_CHAPTER_INDEX_KEY)
-
+            ReaderScreen(bookId = bookId, chapterIdx)
         }
 
         /** Settings Screen */
@@ -310,7 +321,7 @@ fun NavGraph(
             },
             popExitTransition = { fadeOut(animationSpec = tween(400)) }
         ) {
-
+            SettingsScreen(navController)
         }
 
         /** Open Source Licenses Screen */
@@ -331,7 +342,7 @@ fun NavGraph(
                 ) + fadeOut(animationSpec = tween(300))
             },
         ) {
-
+            OSLScreen(navController = navController)
         }
 
         /** About Screen */
@@ -352,7 +363,7 @@ fun NavGraph(
                 ) + fadeOut(animationSpec = tween(300))
             },
         ) {
-
+            AboutScreen(navController = navController)
         }
     }
 }
