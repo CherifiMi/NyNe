@@ -19,7 +19,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 class BookDownloader (context: Context){
     companion object{
-
+        val FILE_FOLDER_PATH = "/storage/emulated/0/${Environment.DIRECTORY_DOWNLOADS}/${Constants.DOWNLOAD_DIR}"
     }
     private val downloadJob = Job()
     private val downloadScope = CoroutineScope(Dispatchers.IO + downloadJob)

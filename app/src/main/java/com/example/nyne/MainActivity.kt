@@ -85,7 +85,7 @@ class MainActivity : ComponentActivity() {
         }
         checkStoragePermission()
     }
-    private fun checkStoragePermission(): Boolean {
+    fun checkStoragePermission(): Boolean {
         return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 Log.d("MainActivity::Storage", "Permission is granted"); true

@@ -26,16 +26,16 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import coil.annotation.ExperimentalCoilApi
-import com.starry.myne.MainActivity
-import com.starry.myne.R
-import com.starry.myne.database.library.LibraryDao
-import com.starry.myne.database.library.LibraryItem
-import com.starry.myne.others.BookDownloader
-import com.starry.myne.repo.BookRepository
+import com.example.nyne.MainActivity
+import com.example.nyne.R
+import com.example.nyne.data.database.library.LibraryDao
+import com.example.nyne.data.database.library.LibraryItem
+import com.example.nyne.domein.repo.BookRepository
+import com.example.nyne.domein.util.BookUtils
+import com.example.nyne.domein.util.others.BookDownloader
 import com.starry.myne.repo.models.Book
 import com.starry.myne.repo.models.BookSet
 import com.starry.myne.repo.models.ExtraInfo
-import com.starry.myne.utils.BookUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -103,7 +103,7 @@ class BookDetailViewModel @Inject constructor(
         val libraryItem = LibraryItem(
             bookId = book.id,
             title = book.title,
-            authors = BookUtils.getAuthorsAsString(book.authors),
+            authors = BookUtils.getAutherAsString(book.authors),
             filePath = "${BookDownloader.FILE_FOLDER_PATH}/$filename",
             createdAt = System.currentTimeMillis()
         )

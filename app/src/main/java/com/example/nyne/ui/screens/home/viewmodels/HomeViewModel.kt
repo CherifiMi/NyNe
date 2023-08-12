@@ -16,17 +16,13 @@ limitations under the License.
 
 package com.starry.myne.ui.screens.home.viewmodels
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.starry.myne.others.BookLanguage
-import com.starry.myne.others.NetworkObserver
-import com.starry.myne.others.Paginator
-import com.starry.myne.repo.BookRepository
+import com.example.nyne.domein.repo.BookRepository
+import com.example.nyne.domein.util.others.BookLanguage
+import com.example.nyne.domein.util.others.NetworkObserver
+import com.example.nyne.domein.util.others.Paginator
 import com.starry.myne.repo.models.Book
 import com.starry.myne.repo.models.BookSet
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -86,6 +82,13 @@ class HomeViewModel @Inject constructor(private val bookRepository: BookReposito
     }, onError = {
         allBooksState = allBooksState.copy(error = it?.localizedMessage ?: "unknown-error")
     }, onSuccess = { bookSet, newPage ->
+        /**
+         * usually bookSet.books is not nullable and API simply returns empty list
+         * when browsing books all books (i.e. without passing language parameter)
+         * however, when browsing by language it returns a response which looks like
+         * this: {"detail": "Invalid page."}. Hence the [BookSet] attributes become
+         * null in this case and can cause crashes.
+         */
         /**
          * usually bookSet.books is not nullable and API simply returns empty list
          * when browsing books all books (i.e. without passing language parameter)
