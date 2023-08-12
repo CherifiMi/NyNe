@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.app.ActivityCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.nyne.domein.util.others.NetworkObserver
 import com.example.nyne.ui.theme.NyneTheme
 import com.starry.myne.ui.screens.settings.viewmodels.SettingsViewModel
@@ -27,9 +28,14 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        installSplashScreen().setKeepOnScreenCondition {
+            mainViewModel.isLoading.value
+        }
+
         setContent {
             NyneTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
