@@ -24,9 +24,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.starry.myne.others.BookLanguage
-import com.starry.myne.others.Paginator
-import com.starry.myne.repo.BookRepository
+import com.example.nyne.domein.repo.BookRepository
+import com.example.nyne.domein.util.others.BookLanguage
+import com.example.nyne.domein.util.others.Paginator
 import com.starry.myne.repo.models.Book
 import com.starry.myne.repo.models.BookSet
 import dagger.hilt.android.lifecycle.HiltViewModel

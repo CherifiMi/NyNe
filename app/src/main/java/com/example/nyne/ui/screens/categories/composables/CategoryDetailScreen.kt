@@ -54,19 +54,19 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
-import com.starry.myne.R
-import com.starry.myne.others.BookLanguage
-import com.starry.myne.others.NetworkObserver
+import com.example.nyne.R
+import com.example.nyne.domein.util.BookUtils
+import com.example.nyne.domein.util.others.BookLanguage
+import com.example.nyne.domein.util.others.NetworkObserver
+import com.example.nyne.ui.navigation.Screens
+import com.example.nyne.ui.theme.pacificoFont
 import com.starry.myne.ui.common.BookItemCard
 import com.starry.myne.ui.common.CustomTopAppBar
 import com.starry.myne.ui.common.NoBooksAvailable
 import com.starry.myne.ui.common.ProgressDots
-import com.starry.myne.ui.navigation.Screens
 import com.starry.myne.ui.screens.categories.viewmodels.CategoryViewModel
 import com.starry.myne.ui.screens.home.composables.LanguageItem
 import com.starry.myne.ui.screens.other.NetworkError
-import com.starry.myne.ui.theme.pacificoFont
-import com.starry.myne.utils.BookUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.util.Locale
@@ -211,7 +211,7 @@ fun CategoryDetailScaffold(
                         ) {
                             BookItemCard(
                                 title = item.title,
-                                author = BookUtils.getAuthorsAsString(item.authors),
+                                author = BookUtils.getAutherAsString(item.authors),
                                 language = BookUtils.getLanguagesAsString(item.languages),
                                 subjects = BookUtils.getSubjectsAsString(item.subjects, 3),
                                 coverImageUrl = item.formats.imagejpeg

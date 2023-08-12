@@ -45,11 +45,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.starry.myne.R
+import com.example.nyne.R
 import com.starry.myne.ui.common.CustomTopAppBar
-import com.starry.myne.ui.navigation.Screens
 import com.starry.myne.ui.screens.categories.viewmodels.CategoryViewModel
-import com.starry.myne.ui.theme.figeronaFont
 import java.util.Locale
 
 @ExperimentalMaterial3Api
