@@ -16,7 +16,7 @@ limitations under the License.
 
 package com.example.nyne.ui.navigation
 
-import com.starry.myne.R
+import com.example.nyne.R
 
 sealed class BottomBarScreen(
     val route: String,
@@ -47,3 +47,4 @@ sealed class BottomBarScreen(
         icon = R.drawable.ic_nav_settings
     )
 }
+
